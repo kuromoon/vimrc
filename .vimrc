@@ -6,12 +6,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'xavierd/clang_complete', { 'dir': '~/.vim/plugged/clang_complete', 'do': 'make install'  }
 call plug#end()
-
-
-
-
-
 
 
 " set line numbers
@@ -37,7 +33,11 @@ set incsearch
 " show matching braces
 set showmatch
 
+set cursorline
 
+" don't save backups
+set nobackup
+set nowritebackup
 
 """"""""""""""""""""""""""""""""""
 " COLORS/FONTS
@@ -48,18 +48,6 @@ colorscheme nord
 
 
 set encoding=utf8
-
-
-
-
-
-
-
-" Turn off backups
-set backup
-set nowb
-set noswapfile
-
 
 """""""""""""""""""""""""""""""""""
 " TEXT
@@ -89,15 +77,6 @@ map <C-l> <C-w>l
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
-
-"set title
-"set titleold="Terminal"
-"set titlestring=%F
-
-"set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-
-
-
 
 
 " mappings
@@ -149,3 +128,20 @@ nnoremap N Nzzzv
 "*****************************************************************************
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
+
+
+
+
+" Configurations
+
+" Nord
+let g:nord_cursor_line_number_background = 1
+let g:nord_bold_vertical_split_line = 1
+
+
+" Clang Complete
+let g:clang_library_path='/usr/lib/llvm-6.0/lib/libclang.so.1'
+let g:clang_complete_auto=2
+let g:clang_auto_select=1
+let g:clang_complete_macros=1
+"let g:clang_snippets=1
